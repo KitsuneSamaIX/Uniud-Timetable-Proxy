@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 
@@ -18,11 +18,11 @@ app.add_middleware(
 
 
 @app.get("/{url_path:path}")
-async def proxy(url_path: str):
+async def proxy(request: Request, url_path: str):
     if not url_path:
         return {"success": False, "errors": ["url path empty"]}
 
-    response = requests.get(f'https://planner.uniud.it/{url_path}')
+    response = requests.get(f'https://planner.uniud.it/{url_path}', params=request.query_params)
     if response.ok:
         return Response(content=response.content)
 
