@@ -7,3 +7,8 @@ Accept: application/json
 
 GET https://uniud-timetable-app.herokuapp.com/PortaleStudenti/api_profilo_aa_scuola_tipo_cdl_pd.php
 Accept: application/json
+
+###
+
+GET https://planner.uniud.it/PortaleStudenti/api_profilo_aa_scuola_tipo_cdl_pd.php
+Accept: application/json

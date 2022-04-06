@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 
@@ -24,6 +24,6 @@ async def proxy(url_path: str):
 
     response = requests.get(f'https://planner.uniud.it/{url_path}')
     if response.ok:
-        return response.content
+        return Response(content=response.content)
 
     return {"success": False, "errors": ["request failed", f"status code: {response.status_code}"]}
