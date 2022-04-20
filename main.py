@@ -6,6 +6,8 @@ app = FastAPI()
 
 origins = [
     "https://kitsunesamaix.github.io",
+    "https://uniud-timetable-app.web.app",
+    "https://uniud-timetable-app.firebaseapp.com",
 ]
 
 app.add_middleware(
